@@ -1,0 +1,74 @@
+<mat-card class="example-card">
+    <div class="wrap">
+        <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="example-form" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                <table class="example-full-width" cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Username" formControlName="username" name="username"
+                                    required>
+                            </mat-form-field>
+                            <br><span class="validate" *ngIf="isValid('username')">Username is required and more 6
+                                characters.</span>
+                        </td>
+                    </tr>
+                    <div formGroupName="passwords">
+                            <tr>
+                                    <td>
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Password" formControlName="password" type="password"
+                                                name="password" required>
+                                        </mat-form-field>
+                                        <br><span class="validate" *ngIf="isValid('passwords.password')">Password is required and more 6
+                                            characters. </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="ConfirmPassword" formControlName="c_password"
+                                                type="password" name="c_password" required>
+                                        </mat-form-field>
+                                        <br><span class="validate" *ngIf="isValid('passwords.c_password') || isValid('passwords')">Error! Password less than 6  charater or different password  </span>
+                                        
+                                    </td>
+                                </tr>
+                                
+                    </div>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Fullname" formControlName="fullname" type="text"
+                                    name="fullname" required>
+                            </mat-form-field>
+                            <br><span class="validate" *ngIf="isValid('fullname')">Fullname is required. </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Email" formControlName="email" type="email" name="email"
+                                    required>
+                            </mat-form-field>
+                            <br><span class="validate" *ngIf="isValid('email')">Email is required name@123.com </span>
+                        </td>
+                    </tr>
+                    
+
+                </table>
+                <mat-card-actions>
+                    <button mat-raised-button type="submit" color="primary"
+                        [disabled]="registerForm.invalid">Register</button>
+                    <button mat-raised-button color="primary" (click)="clickButtonLogin()">Login</button>
+
+                </mat-card-actions>
+            </form>
+            <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+        </mat-card-content>
+
+    </div>
+</mat-card>

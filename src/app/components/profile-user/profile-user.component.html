@@ -1,0 +1,16 @@
+<h2>Xin chào, {{ userDetail.fullname }} đã đến với trang ADMIN</h2>
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ userDetail.fullname }}</mat-card-title>
+        <mat-card-subtitle>{{ userDetail.username }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://ttol.vietnamnetjsc.vn/images/2018/08/29/17/25/Hot-girl-co-vu-cho-Olympic-Viet-Nam-9.jpg">
+    <mat-card-content>
+        <p><strong>Email:</strong> {{ userDetail.email }}</p>
+        <p><strong>Username:</strong> {{ userDetail.username }}</p>
+        <p><strong>Fullname:</strong> {{ userDetail.fullname }}</p>
+
+    </mat-card-content>
+
+</mat-card>

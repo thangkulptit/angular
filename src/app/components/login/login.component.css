@@ -1,0 +1,23 @@
+.example-card {
+   margin: auto;
+   width: 400px;
+}
+td span {
+    color: red;
+    margin-left: 16px;
+}
+
+.matInput {
+    width: 200px;
+}
+
+
+
+::ng-deep td .validate {
+    font-size: 10px;
+}
+
+a {
+    cursor: pointer;
+}
+

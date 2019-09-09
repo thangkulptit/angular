@@ -1,0 +1,73 @@
+<form [formGroup]="formEditProduct" class="form-horizontal" (ngSubmit)="onSubmit()">
+    <div class="panel panel-primary" *ngIf="productEdit">
+        <div class="panel-heading">
+            <div class="panel-title"> Edit Product Form</div>
+        </div>
+        <div class="panel-body">
+            <div class="col-sm-3" *ngIf="isValid('id_category')" class="alert alert-danger">
+                <strong>Error:</strong> Category is required.
+            </div>
+            <fieldset disabled *ngIf="idGetFromUrl">
+                <div class="form-group has-success has-feedback">
+                    <label for="disabledTextInput" class="col-sm-2 control-label">Id</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="disabledTextInput" class="form-control" value="{{ idGetFromUrl }}">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div
+                    [class]="isValid('id_category') ? 'form-group has-error has-feedback':'form-group has-success has-feedback'">
+                    <label for="disabledSelect" class="col-sm-2 control-label">Category Product:</label>
+                    <div class="col-sm-10">
+                        <select id="disabledSelect" class="form-control" name="id_category"
+                            formControlName="id_category">
+                            <option value="">Danh mục sản phẩm</option>
+                            <option *ngFor="let category of categories" [selected]="category.id == productEdit.id_category" value="{{ category.id }}">{{category.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            <div
+                [class]="isValid('name')? 'form-group has-error has-feedback' : 'form-group has-success has-feedback'">
+                <label class="col-sm-2 control-label">Name Product:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="focusedInput" type="text" value="{{ productEdit.name }}" name="name"
+                        formControlName="name">
+                    <span *ngIf="isValidTouched('name')"
+                        [class]="isValid('name') ? 'glyphicon glyphicon-remove form-control-feedback': 'glyphicon glyphicon-ok form-control-feedback' "></span>
+                </div>
+            </div>
+            <div
+                [class]="isValid('description') ? 'form-group has-error has-feedback' : 'form-group has-success has-feedback' ">
+                <label class="col-sm-2 control-label">Description:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="focusedInput" type="text" value="{{ productEdit.description }}"
+                        name="description" formControlName="description">
+                    <span *ngIf="isValidTouched('description')"
+                        [class]="isValid('description') ? 'glyphicon glyphicon-remove form-control-feedback': 'glyphicon glyphicon-ok form-control-feedback' "></span>
+                </div>
+            </div>
+            <div
+                [class]="isValid('price') ? 'form-group has-error has-feedback' : 'form-group has-success has-feedback' ">
+                <label class="col-sm-2 control-label">Price:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="focusedInput" type="number" value="{{ productEdit.price }}"
+                        name="price" formControlName="price">
+                    <span *ngIf="isValidTouched('price')"
+                        [class]="isValid('price') ? 'glyphicon glyphicon-remove form-control-feedback': 'glyphicon glyphicon-ok form-control-feedback' "></span>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer" style="max-height: 60px;">
+            <div class="form-group">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-10">
+                    <button type="submit" class="btn btn-success" [disabled]="!formEditProduct.valid">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

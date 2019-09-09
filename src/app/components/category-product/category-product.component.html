@@ -1,0 +1,64 @@
+<div style="margin-bottom: 60px;" class="wrap">
+    <button mat-raised-button (click)="onClickAddButton()"><mat-icon color="primary">add</mat-icon></button>
+  <div>
+    <mat-form-field class="example-full-width">
+      <input (keyup)=filterByName($event.target.value) matInput placeholder="Search by name">
+    </mat-form-field>
+  </div>
+  
+  <div class="example-container mat-elevation-z8">
+    
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- No Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Delete Column -->
+      <div class="wrap-delete">
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef > Actions </th>
+          <td mat-cell *matCellDef="let element" fxLayoutGap="-12px">
+              <button mat-icon-button color="primary" (click)="onClickEditButton(element.id)">
+                  <mat-icon class="mat-18">edit</mat-icon>
+                </button>
+            <button mat-icon-button color="warn" (click)="onClickDeleteButton(element.id)">
+              <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+
+          </td>
+        </ng-container>
+      </div>
+      <!-- Update Column -->
+      <!-- <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef> Edit </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="accent" (click)="onClickEditButton(element.id)">
+            <mat-icon class="mat-18">system_update</mat-icon>
+          </button>
+        </td>
+      </ng-container> -->
+
+
+      <!-- <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Action </th>   
+      <td mat-cell *matCellDef="let element"> 
+        <button mat-raised-button (click)="onClickEditButton()" ><mat-icon> edit </mat-icon></button>
+        <button mat-raised-button (click)="onClickDeleteButton()"><mat-icon> delete </mat-icon></button> 
+      </td>
+    </ng-container> -->
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

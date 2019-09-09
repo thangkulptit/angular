@@ -1,0 +1,10 @@
+ .mat-dialog-title {
+    text-align: center; 
+    text-transform: uppercase;
+    color: rgb(70, 5, 122);
+    font-weight: bold;
+}
+.mat-dialog-content {
+    margin-bottom: 20px;
+    font-size: 14px;
+}

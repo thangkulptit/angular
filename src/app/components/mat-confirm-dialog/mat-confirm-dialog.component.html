@@ -1,0 +1,21 @@
+<!-- <div>
+    <div class="content-container">
+        <mat-icon id="close-icon">X</mat-icon>
+        <span class="content-span full-width">
+            Are You Sure Delete Product!
+        </span>
+    </div>
+    <button mat-flat-button id="yes-button">YES</button>
+
+    <button mat-flat-button id="no-button">NO</button>
+</div> -->
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<div>
+    <div mat-dialog-content>
+        <strong>{{ data.content }}</strong>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close mat-dialog-close="true">Yes</button>
+        <button mat-button mat-dialog-close mat-dialog-close="false" >No, Thanks</button>
+    </div>
+</div>

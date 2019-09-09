@@ -1,0 +1,14 @@
+<h2>Form Add Category Product</h2>
+<form [formGroup]="formCategoryProduct" (ngSubmit)="onSubmit()">
+    <div class="example-container">
+        
+        <mat-form-field>
+            <input matInput placeholder="Name Category" name="name" formControlName="name" >
+        </mat-form-field>
+    
+    </div>
+    <button mat-raised-button type="submit" [disabled]="formCategoryProduct.invalid">Submit</button>
+
+
+
+</form>

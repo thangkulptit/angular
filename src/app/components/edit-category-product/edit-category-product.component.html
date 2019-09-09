@@ -1,0 +1,14 @@
+<h2>Form Edit Category Product</h2>
+<form [formGroup]="formEdit" (ngSubmit)="onCategoryEditSubmit()">
+    <div class="example-container">
+        <mat-form-field>
+            <input matInput placeholder="id" value="{{ idFromUrl }}" disabled>
+        </mat-form-field>
+        
+        <mat-form-field *ngIf="categoryResponse">
+            <input matInput placeholder="Name Category" name="name" formControlName="name" value={{categoryResponse.name}} >
+        </mat-form-field>
+    </div>
+    <button mat-raised-button type="submit" [disabled]="formEdit.invalid">Submit</button>
+
+</form>

@@ -1,0 +1,51 @@
+<a routerLink="/addproduct"><button style="margin-bottom: 15px;" class="box-shadow-table btn btn-danger">Add</button></a>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+        List Product
+    </h3>
+  </div>
+  
+  <div class="body-table panel-body">
+    <div class="form-group">
+      
+      <div class="col-md-6">
+          <input type="text" class="box-shadow-table form-control" placeholder="Search by Name..." [(ngModel)]="txtSearch" >
+         
+      </div>
+    </div>      
+      <table class="box-shadow-table table table-hover table-bordered text-center">
+          <thead>
+            <tr>
+              <th class="text-table">Id</th>
+              <th class="text-table">Id_Category</th>
+              <th class="text-table">Name</th>
+              <th class="text-table">Description</th>
+              <th class="text-table">Price</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+              
+            <tr *ngFor="let product of products | productFilter:txtSearch | paginate: {itemsPerPage:10, currentPage: p} ">
+              <td>{{ product.id }}</td>
+              <td>{{ product.id_category }}</td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.price | number }}<sup style="font-weight: bold;">vnđ</sup></td>
+              <td>
+                <button><a title="edit" class="box-shadow-table btn btn-primary" (click)="onClickEditProduct(product.id)"><i class="glyphicon glyphicon-pencil"></i></a></button> 
+                <button><a title="delete" class="box-shadow-table btn btn-danger" (click)="onClickDeleteProduct(product.id)"><i class="glyphicon glyphicon-trash"></i></a></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  <div class="panel-footer" style="height: 50px;">
+      <pagination-controls (pageChange)="p =$event"></pagination-controls>
+  </div>
+  
+</div>
+
+  
+  

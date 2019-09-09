@@ -1,0 +1,12 @@
+<div *ngIf = alertService.alertMessage.length>
+    <div *ngFor="let message of alertService.alertMessage" [class]="message.type == Success ? 'alert alert-success' : 'alert alert-danger'">
+        <div><strong>{{ message.type }}! </strong> {{ message.message }}</div>
+    </div>
+</div>
+
+<!-- <div *ngIf="inputAlert" [class]="inputAlert ? 'alert alert-success' : 'alert alert-danger' "alert-dismissable>
+        <div *ngIf="inputAlert"><strong>Success!</strong> Add Product Success....</div>
+        <div *ngIf="!inputAlert"><strong>Faild!</strong> Add Product Failded....</div>
+    </div>
+
+     -->

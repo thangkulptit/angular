@@ -1,0 +1,14 @@
+.loading {
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 20px; 
+	color: rgb(234, 232, 255);
+	animation: round 1s linear infinite;
+}
+
+@keyframes round {
+	from{transform: rotate(0)}
+	to{transform: rotate(360)}
+}
+
+
+  

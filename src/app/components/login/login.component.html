@@ -1,0 +1,43 @@
+<mat-card class="example-card">
+    <div class="wrap">
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <table class="example-full-width" cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Username" formControlName="username" name="username"
+                                    required>
+                            </mat-form-field>
+                            <br><span class="validate" *ngIf="isValid('username')">Username is required and more 6
+                                characters</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Password" formControlName="password" type="password"
+                                    name="password" required>
+                            </mat-form-field>
+                            <br><span class="validate" *ngIf="isValid('password')">Password is required and more 6
+                                characters </span>
+                        </td>
+                        
+                    </tr>
+                </table>
+                <mat-card-actions>
+                    <button mat-raised-button type="submit" color="primary"
+                        [disabled]="loginForm.invalid">Login</button>
+                    <button mat-raised-button color="primary" (click)="clickRegister()">Register</button>
+                </mat-card-actions>
+            </form>
+            <a (click)="onClickForgot()">Forgot your password?</a>
+            <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+        </mat-card-content>
+
+
+    </div>
+</mat-card>
